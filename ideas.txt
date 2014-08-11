@@ -1,0 +1,126 @@
+Shield feedback:
+T1/2 - 3/4 - 5/6 colors
+
+GGG		100 - 85
+GGY		84 - 71
+GYY		70 - 57
+YYY		56 - 44
+YYR		43 - 30
+YRR		29 - 16
+RRR		15 - 0
+
+
+Hull feedback:
+T1/2 - 3/4 - 5/6 flashing
+
+No flashing	100
+Very slow	99 - 80
+Slow		79 - 60
+Medium		59 - 40
+Fast		39 - 20
+Very fast	19 - 0
+
+If you have shields<15% and hull<20% ALL LEDs will flash red.
+If the shields power up only the T LEDs continue to flash until hull is repaired, all other LEDs resume normal operation.
+
+
+(A) LED: Selected missiles str compared to target:
+ - off : no missile equipped
+ - green : will cause only shield damage
+ - yellow : will destroy shield and cause some hull damage
+ - red : will blow target to tiny little pieces
+
+ Fire LED:
+ - off: no missile equipped
+ - flashing speed shows targets range compared to equipped missiles range
+ - slow flash: target too far
+ - fast flash: target getting near enough
+ - on : target in range
+
+POV2 LED: target status
+ - off : no target
+ - green : friendly
+ - yellow : neutral
+ - red : enemy
+ - red and flashing : enemy / stronger ship than yours (based on class/shield/hull)
+
+(I) LED: closest incoming missile damage if hit:
+ - off : no incoming missile 
+ - green flashing - only shield damage
+ - yellow flashing - hull damage expected
+ - red - you will not survive
+ 
+
+(E) LED: all incoming missiles damage if all hit:
+ - off: no more incoming missile
+ - green flashing - only shield damage
+ - yellow flashing - hull damage expected
+ - red - you will not survive
+
+
+(B) LED: Laser energy
+ - off : no weapons installed
+ - green: 100 - 75%
+ - yellow: 74 - 50 %
+ - red:    49 - 20 %
+ - red and flashing: <20%
+
+
+(D) LED: ??? ideas welcome
+
+
+Throttle LEDs: ship docked or 0 speed: off
+	       ship moving : on
+	       ship moving backward : flashing
+
+
+
+MFD pages:
+
+Equipped missile page:
+Type
+Yield
+Speed
+Estimated travel time to target if fired
+Stock in cargo hold
+Flags (heat seaking, swarm, etc)
+
+
+Player page:
+Ship name / class
+Hull numeric / %
+Shield numeric / %
+Time until shield fully charges
+Total Laser str
+Laser energy %
+Time to fully recharge
+Current money
+Incoming money / minute (based on last 10 minutes average)
+
+
+Target page:
+Name / class
+Hull numeric / %   
+Shield numeric / % 
+ - normally these should need freight scanner but most of us know anyway that X ship has XY MJ/GJ shields normally, so I don't consider this a cheat
+
+Enemy/Neutral/Friend
+Total equipped laser str ?
+
+
+Incoming missiles page:
+Closest missile:
+	Type
+	Yield
+	Speed
+	Estimated time until impact
+All incoming missiles:
+	Total Yield
+
+
+Cargo page:
+List of goods in cargo hold
+
+
+If there is an incoming missile pressing right MFD wheel will switch to Incoming missiles page.
+If an enemy target is selected (and there is no incoming missile) pressing the button will switch to Target page.

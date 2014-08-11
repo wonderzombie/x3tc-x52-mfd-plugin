@@ -1,0 +1,506 @@
+<?xml version="1.0" standalone="yes"?>
+<?xml-stylesheet href="x2script.xsl" type="text/xsl"?>
+<!--Produced externally by the Exscriptor-->
+<script>
+   <name>al.x52extractor.main</name>
+   <version>2</version>
+   <engineversion>44</engineversion>
+   <description>Data extractor for Saitek X52 Pro controller - main script</description>
+   <arguments>
+      <argument index="0" name="plugin.ID" type="Var/String" desc="plugin ID" />
+      <argument index="1" name="plugin.Event" type="Var/String" desc="plugin event" />
+   </arguments>
+   <sourcetext>
+      <line linenr="001" indent=""><text>load text: id=</text><var>9911</var><text></text></line>
+      <line linenr="002" indent=""><comment>* load your t file</comment></line>
+      <line linenr="003" indent=""> </line>
+      <line linenr="004" indent=""><comment>* global plugin variable stores plugin state and variables</comment></line>
+      <line linenr="005" indent=""><text></text><var>$plugin.Vars =</var><text> get global variable: name=</text><var>$plugin.ID</var><text></text></line>
+      <line linenr="006" indent=""><var>if not </var><text></text><var>$plugin.Vars </var><text></text></line>
+      <line linenr="007" indent="&#160;"><comment>* setup new data structure and init it</comment></line>
+      <line linenr="008" indent="&#160;"><text></text><var>$plugin.Vars =</var><text> = array alloc: size=</text><var>2</var><text></text></line>
+      <line linenr="009" indent="&#160;"><text>set global variable: name=</text><var>$plugin.ID</var><text> value=</text><var>$plugin.Vars</var><text></text></line>
+      <line linenr="010" indent="&#160;"><comment>* data structure version</comment></line>
+      <line linenr="011" indent="&#160;"><text></text><var>$plugin.Vars</var><text>[</text><var>0</var><text>] = </text><var>0</var><text></text></line>
+      <line linenr="012" indent="&#160;"><comment>* plugin initially enabled needs TRUE set disabled on init = FALSE</comment></line>
+      <line linenr="013" indent="&#160;"><text></text><var>$plugin.Vars</var><text>[</text><var>1</var><text>] = </text><var>[TRUE]</var><text></text></line>
+      <line linenr="014" indent=""><text>end</text></line>
+      <line linenr="015" indent=""> </line>
+      <line linenr="016" indent=""><comment>* handle plugin events</comment></line>
+      <line linenr="017" indent=""><comment>* init and reinit are run every time the game loads</comment></line>
+      <line linenr="018" indent=""><var>if </var><text></text><var>$plugin.Event == 'init' OR $plugin.Event == 'reinit' </var><text></text></line>
+      <line linenr="019" indent="&#160;"><text></text><var>$desc =</var><text> = sprintf: pageid=</text><var>9911</var><text> textid=</text><var>1</var><text>, </text><var>null</var><text>, </text><var>null</var><text>, </text><var>null</var><text>, </text><var>null</var><text>, </text><var>null</var><text></text></line>
+      <line linenr="020" indent="&#160;"><text>al engine: set plugin </text><var>$plugin.ID</var><text> description to </text><var>$desc</var><text></text></line>
+      <line linenr="021" indent="&#160;"><comment>* loads the t file text for the AL Menu</comment></line>
+      <line linenr="022" indent="&#160;"><comment>* init and reinit are run every time the game loads</comment></line>
+      <line linenr="023" indent="&#160;"> </line>
+      <line linenr="024" indent="&#160;"><comment>* interval is 3 seconds</comment></line>
+      <line linenr="025" indent="&#160;"><var>$interval = </var><text></text><var>3 </var><text></text></line>
+      <line linenr="026" indent="&#160;"><text>al engine: set plugin </text><var>$plugin.ID</var><text> timer interval to </text><var>$interval</var><text> s</text></line>
+      <line linenr="027" indent="&#160;"> </line>
+      <line linenr="028" indent=""><var>else if </var><text></text><var>$plugin.Event == 'isenabled' </var><text></text></line>
+      <line linenr="029" indent="&#160;"><text></text><var>$enabled =</var><text> </text><var>$plugin.Vars</var><text>[</text><var>1</var><text>]</text></line>
+      <line linenr="030" indent="&#160;"><text>return </text><var>$enabled</var><text></text></line>
+      <line linenr="031" indent="&#160;"> </line>
+      <line linenr="032" indent="&#160;"><comment>* Use this area to process special instructions when the plugin is toggled on</comment></line>
+      <line linenr="033" indent=""><var>else if </var><text></text><var>$plugin.Event == 'start' </var><text></text></line>
+      <line linenr="034" indent="&#160;"><text></text><var>$plugin.Vars</var><text>[</text><var>1</var><text>] = </text><var>[TRUE]</var><text></text></line>
+      <line linenr="035" indent="&#160;"><text></text><var>$desc =</var><text> = sprintf: pageid=</text><var>9911</var><text> textid=</text><var>1</var><text>, </text><var>null</var><text>, </text><var>null</var><text>, </text><var>null</var><text>, </text><var>null</var><text>, </text><var>null</var><text></text></line>
+      <line linenr="036" indent="&#160;"><text>al engine: set plugin </text><var>$plugin.ID</var><text> description to </text><var>$desc</var><text></text></line>
+      <line linenr="037" indent="&#160;"><comment>* shows plugin t file txt as enabled</comment></line>
+      <line linenr="038" indent="&#160;"><comment>* Use this area to process special instructions when the plugin is toggled off</comment></line>
+      <line linenr="039" indent=""><var>else if </var><text></text><var>$plugin.Event == 'stop' </var><text></text></line>
+      <line linenr="040" indent="&#160;"><text></text><var>$desc =</var><text> = sprintf: pageid=</text><var>9911</var><text> textid=</text><var>1</var><text>, </text><var>null</var><text>, </text><var>null</var><text>, </text><var>null</var><text>, </text><var>null</var><text>, </text><var>null</var><text></text></line>
+      <line linenr="041" indent="&#160;"><comment>* shows plugin t file txt as disabled if player switches it off</comment></line>
+      <line linenr="042" indent="&#160;"><text></text><var>$plugin.Vars</var><text>[</text><var>1</var><text>] = </text><var>[FALSE]</var><text></text></line>
+      <line linenr="043" indent="&#160;"><text>al engine: set plugin </text><var>$plugin.ID</var><text> description to </text><var>$desc</var><text></text></line>
+      <line linenr="044" indent="&#160;"><comment>* The event script is called every interval</comment></line>
+      <line linenr="045" indent=""><var>else if </var><text></text><var>$plugin.Event == 'timer' </var><text></text></line>
+      <line linenr="046" indent="&#160;" interruptable="@"><text></text><var> =</var><text> </text><var>[THIS]</var><text></text><var> -> </var><text>call script </text><var></var><call>al.x52extractor.events</call><var></var><text> : plugin ID=</text><var>$plugin.ID</var><text>  plugin data=</text><var>$plugin.Vars</var><text> </text></line>
+      <line linenr="047" indent=""><text>end</text></line>
+      <line linenr="048" indent=""> </line>
+      <line linenr="049" indent=""><text>return </text><var>null</var><text></text></line>
+      <line linenr="050" indent=""> </line>
+      <line linenr="051" indent=""> </line>
+   </sourcetext>
+   <codearray>
+      <sval type="array" size="10">
+         <sval type="string" val="al.x52extractor.main" />
+         <sval type="int" val="44" />
+         <sval type="string" val="Data extractor for Saitek X52 Pro controller - main script" />
+         <sval type="int" val="2" />
+         <sval type="int" val="0" />
+         <sval type="array" size="6">
+            <sval type="string" val="plugin.ID" />
+            <sval type="string" val="plugin.Event" />
+            <sval type="string" val="plugin.Vars" />
+            <sval type="string" val="desc" />
+            <sval type="string" val="interval" />
+            <sval type="string" val="enabled" />
+         </sval>
+         <sval type="array" size="30">
+            <sval type="array" size="3">
+               <sval type="int" val="151" />
+               <sval type="int" val="4" />
+               <sval type="int" val="9911" />
+            </sval>
+            <sval type="array" size="4">
+               <sval type="int" val="158" />
+               <sval type="int" val="131074" />
+               <sval type="int" val="0" />
+               <sval type="int" val="2" />
+            </sval>
+            <sval type="array" size="7">
+               <sval type="int" val="104" />
+               <sval type="int" val="-536869116" />
+               <sval type="int" val="1" />
+               <sval type="int" val="131074" />
+               <sval type="int" val="2" />
+               <sval type="int" val="1" />
+               <sval type="int" val="-1" />
+            </sval>
+            <sval type="array" size="4">
+               <sval type="int" val="128" />
+               <sval type="int" val="2" />
+               <sval type="int" val="4" />
+               <sval type="int" val="2" />
+            </sval>
+            <sval type="array" size="5">
+               <sval type="int" val="157" />
+               <sval type="int" val="131074" />
+               <sval type="int" val="0" />
+               <sval type="int" val="131074" />
+               <sval type="int" val="2" />
+            </sval>
+            <sval type="array" size="7">
+               <sval type="int" val="130" />
+               <sval type="int" val="131074" />
+               <sval type="int" val="2" />
+               <sval type="int" val="4" />
+               <sval type="int" val="0" />
+               <sval type="int" val="4" />
+               <sval type="int" val="0" />
+            </sval>
+            <sval type="array" size="7">
+               <sval type="int" val="130" />
+               <sval type="int" val="131074" />
+               <sval type="int" val="2" />
+               <sval type="int" val="4" />
+               <sval type="int" val="1" />
+               <sval type="int" val="131075" />
+               <sval type="int" val="10" />
+            </sval>
+            <sval type="array" size="25">
+               <sval type="int" val="104" />
+               <sval type="int" val="-1610609405" />
+               <sval type="int" val="7" />
+               <sval type="int" val="131074" />
+               <sval type="int" val="1" />
+               <sval type="int" val="5" />
+               <sval type="string" val="init" />
+               <sval type="int" val="15" />
+               <sval type="int" val="0" />
+               <sval type="int" val="131074" />
+               <sval type="int" val="1" />
+               <sval type="int" val="5" />
+               <sval type="string" val="reinit" />
+               <sval type="int" val="15" />
+               <sval type="int" val="0" />
+               <sval type="int" val="15" />
+               <sval type="int" val="10" />
+               <sval type="int" val="7" />
+               <sval type="int" val="-1" />
+               <sval type="int" val="0" />
+               <sval type="int" val="-2" />
+               <sval type="int" val="10" />
+               <sval type="int" val="-4" />
+               <sval type="int" val="0" />
+               <sval type="int" val="-5" />
+            </sval>
+            <sval type="array" size="16">
+               <sval type="int" val="150" />
+               <sval type="int" val="3" />
+               <sval type="int" val="4" />
+               <sval type="int" val="9911" />
+               <sval type="int" val="4" />
+               <sval type="int" val="1" />
+               <sval type="int" val="0" />
+               <sval type="int" val="0" />
+               <sval type="int" val="0" />
+               <sval type="int" val="0" />
+               <sval type="int" val="0" />
+               <sval type="int" val="0" />
+               <sval type="int" val="0" />
+               <sval type="int" val="0" />
+               <sval type="int" val="0" />
+               <sval type="int" val="0" />
+            </sval>
+            <sval type="array" size="5">
+               <sval type="int" val="1024" />
+               <sval type="int" val="131074" />
+               <sval type="int" val="0" />
+               <sval type="int" val="131074" />
+               <sval type="int" val="3" />
+            </sval>
+            <sval type="array" size="7">
+               <sval type="int" val="104" />
+               <sval type="int" val="4" />
+               <sval type="int" val="1" />
+               <sval type="int" val="4" />
+               <sval type="int" val="3" />
+               <sval type="int" val="1" />
+               <sval type="int" val="-1" />
+            </sval>
+            <sval type="array" size="5">
+               <sval type="int" val="1025" />
+               <sval type="int" val="131074" />
+               <sval type="int" val="0" />
+               <sval type="int" val="131074" />
+               <sval type="int" val="4" />
+            </sval>
+            <sval type="array" size="2">
+               <sval type="int" val="112" />
+               <sval type="int" val="29" />
+            </sval>
+            <sval type="array" size="13">
+               <sval type="int" val="104" />
+               <sval type="int" val="-1610608379" />
+               <sval type="int" val="3" />
+               <sval type="int" val="131074" />
+               <sval type="int" val="1" />
+               <sval type="int" val="5" />
+               <sval type="string" val="isenabled" />
+               <sval type="int" val="15" />
+               <sval type="int" val="0" />
+               <sval type="int" val="3" />
+               <sval type="int" val="-1" />
+               <sval type="int" val="0" />
+               <sval type="int" val="-2" />
+            </sval>
+            <sval type="array" size="6">
+               <sval type="int" val="129" />
+               <sval type="int" val="5" />
+               <sval type="int" val="131074" />
+               <sval type="int" val="2" />
+               <sval type="int" val="4" />
+               <sval type="int" val="1" />
+            </sval>
+            <sval type="array" size="3">
+               <sval type="int" val="103" />
+               <sval type="int" val="131074" />
+               <sval type="int" val="5" />
+            </sval>
+            <sval type="array" size="2">
+               <sval type="int" val="112" />
+               <sval type="int" val="29" />
+            </sval>
+            <sval type="array" size="13">
+               <sval type="int" val="104" />
+               <sval type="int" val="-1610607099" />
+               <sval type="int" val="3" />
+               <sval type="int" val="131074" />
+               <sval type="int" val="1" />
+               <sval type="int" val="5" />
+               <sval type="string" val="start" />
+               <sval type="int" val="15" />
+               <sval type="int" val="0" />
+               <sval type="int" val="3" />
+               <sval type="int" val="-1" />
+               <sval type="int" val="0" />
+               <sval type="int" val="-2" />
+            </sval>
+            <sval type="array" size="7">
+               <sval type="int" val="130" />
+               <sval type="int" val="131074" />
+               <sval type="int" val="2" />
+               <sval type="int" val="4" />
+               <sval type="int" val="1" />
+               <sval type="int" val="131075" />
+               <sval type="int" val="10" />
+            </sval>
+            <sval type="array" size="16">
+               <sval type="int" val="150" />
+               <sval type="int" val="3" />
+               <sval type="int" val="4" />
+               <sval type="int" val="9911" />
+               <sval type="int" val="4" />
+               <sval type="int" val="1" />
+               <sval type="int" val="0" />
+               <sval type="int" val="0" />
+               <sval type="int" val="0" />
+               <sval type="int" val="0" />
+               <sval type="int" val="0" />
+               <sval type="int" val="0" />
+               <sval type="int" val="0" />
+               <sval type="int" val="0" />
+               <sval type="int" val="0" />
+               <sval type="int" val="0" />
+            </sval>
+            <sval type="array" size="5">
+               <sval type="int" val="1024" />
+               <sval type="int" val="131074" />
+               <sval type="int" val="0" />
+               <sval type="int" val="131074" />
+               <sval type="int" val="3" />
+            </sval>
+            <sval type="array" size="2">
+               <sval type="int" val="112" />
+               <sval type="int" val="29" />
+            </sval>
+            <sval type="array" size="13">
+               <sval type="int" val="104" />
+               <sval type="int" val="-1610605819" />
+               <sval type="int" val="3" />
+               <sval type="int" val="131074" />
+               <sval type="int" val="1" />
+               <sval type="int" val="5" />
+               <sval type="string" val="stop" />
+               <sval type="int" val="15" />
+               <sval type="int" val="0" />
+               <sval type="int" val="3" />
+               <sval type="int" val="-1" />
+               <sval type="int" val="0" />
+               <sval type="int" val="-2" />
+            </sval>
+            <sval type="array" size="16">
+               <sval type="int" val="150" />
+               <sval type="int" val="3" />
+               <sval type="int" val="4" />
+               <sval type="int" val="9911" />
+               <sval type="int" val="4" />
+               <sval type="int" val="1" />
+               <sval type="int" val="0" />
+               <sval type="int" val="0" />
+               <sval type="int" val="0" />
+               <sval type="int" val="0" />
+               <sval type="int" val="0" />
+               <sval type="int" val="0" />
+               <sval type="int" val="0" />
+               <sval type="int" val="0" />
+               <sval type="int" val="0" />
+               <sval type="int" val="0" />
+            </sval>
+            <sval type="array" size="7">
+               <sval type="int" val="130" />
+               <sval type="int" val="131074" />
+               <sval type="int" val="2" />
+               <sval type="int" val="4" />
+               <sval type="int" val="1" />
+               <sval type="int" val="131075" />
+               <sval type="int" val="9" />
+            </sval>
+            <sval type="array" size="5">
+               <sval type="int" val="1024" />
+               <sval type="int" val="131074" />
+               <sval type="int" val="0" />
+               <sval type="int" val="131074" />
+               <sval type="int" val="3" />
+            </sval>
+            <sval type="array" size="2">
+               <sval type="int" val="112" />
+               <sval type="int" val="29" />
+            </sval>
+            <sval type="array" size="13">
+               <sval type="int" val="104" />
+               <sval type="int" val="-1610605307" />
+               <sval type="int" val="3" />
+               <sval type="int" val="131074" />
+               <sval type="int" val="1" />
+               <sval type="int" val="5" />
+               <sval type="string" val="timer" />
+               <sval type="int" val="15" />
+               <sval type="int" val="0" />
+               <sval type="int" val="3" />
+               <sval type="int" val="-1" />
+               <sval type="int" val="0" />
+               <sval type="int" val="-2" />
+            </sval>
+            <sval type="array" size="10">
+               <sval type="int" val="102" />
+               <sval type="string" val="al.x52extractor.events" />
+               <sval type="int" val="-2147483647" />
+               <sval type="int" val="131075" />
+               <sval type="int" val="1" />
+               <sval type="int" val="2" />
+               <sval type="int" val="131074" />
+               <sval type="int" val="0" />
+               <sval type="int" val="131074" />
+               <sval type="int" val="2" />
+            </sval>
+            <sval type="array" size="3">
+               <sval type="int" val="103" />
+               <sval type="int" val="0" />
+               <sval type="int" val="0" />
+            </sval>
+         </sval>
+         <sval type="array" size="2">
+            <sval type="array" size="2">
+               <sval type="int" val="11" />
+               <sval type="string" val="plugin ID" />
+            </sval>
+            <sval type="array" size="2">
+               <sval type="int" val="11" />
+               <sval type="string" val="plugin event" />
+            </sval>
+         </sval>
+         <sval type="array" size="25">
+            <sval type="array" size="3">
+               <sval type="int" val="1" />
+               <sval type="int" val="1" />
+               <sval type="string" val="load your t file" />
+            </sval>
+            <sval type="array" size="2">
+               <sval type="int" val="1" />
+               <sval type="int" val="2" />
+            </sval>
+            <sval type="array" size="3">
+               <sval type="int" val="1" />
+               <sval type="int" val="1" />
+               <sval type="string" val="global plugin variable stores plugin state and variables" />
+            </sval>
+            <sval type="array" size="3">
+               <sval type="int" val="3" />
+               <sval type="int" val="1" />
+               <sval type="string" val="setup new data structure and init it" />
+            </sval>
+            <sval type="array" size="3">
+               <sval type="int" val="5" />
+               <sval type="int" val="1" />
+               <sval type="string" val="data structure version" />
+            </sval>
+            <sval type="array" size="3">
+               <sval type="int" val="6" />
+               <sval type="int" val="1" />
+               <sval type="string" val="plugin initially enabled needs TRUE set disabled on init = FALSE" />
+            </sval>
+            <sval type="array" size="2">
+               <sval type="int" val="7" />
+               <sval type="int" val="4" />
+            </sval>
+            <sval type="array" size="2">
+               <sval type="int" val="7" />
+               <sval type="int" val="2" />
+            </sval>
+            <sval type="array" size="3">
+               <sval type="int" val="7" />
+               <sval type="int" val="1" />
+               <sval type="string" val="handle plugin events" />
+            </sval>
+            <sval type="array" size="3">
+               <sval type="int" val="7" />
+               <sval type="int" val="1" />
+               <sval type="string" val="init and reinit are run every time the game loads" />
+            </sval>
+            <sval type="array" size="3">
+               <sval type="int" val="10" />
+               <sval type="int" val="1" />
+               <sval type="string" val="loads the t file text for the AL Menu" />
+            </sval>
+            <sval type="array" size="3">
+               <sval type="int" val="10" />
+               <sval type="int" val="1" />
+               <sval type="string" val="init and reinit are run every time the game loads" />
+            </sval>
+            <sval type="array" size="2">
+               <sval type="int" val="10" />
+               <sval type="int" val="2" />
+            </sval>
+            <sval type="array" size="3">
+               <sval type="int" val="10" />
+               <sval type="int" val="1" />
+               <sval type="string" val="interval is 3 seconds" />
+            </sval>
+            <sval type="array" size="2">
+               <sval type="int" val="12" />
+               <sval type="int" val="2" />
+            </sval>
+            <sval type="array" size="2">
+               <sval type="int" val="16" />
+               <sval type="int" val="2" />
+            </sval>
+            <sval type="array" size="3">
+               <sval type="int" val="16" />
+               <sval type="int" val="1" />
+               <sval type="string" val="Use this area to process special instructions when the plugin is toggled on" />
+            </sval>
+            <sval type="array" size="3">
+               <sval type="int" val="21" />
+               <sval type="int" val="1" />
+               <sval type="string" val="shows plugin t file txt as enabled" />
+            </sval>
+            <sval type="array" size="3">
+               <sval type="int" val="21" />
+               <sval type="int" val="1" />
+               <sval type="string" val="Use this area to process special instructions when the plugin is toggled off" />
+            </sval>
+            <sval type="array" size="3">
+               <sval type="int" val="24" />
+               <sval type="int" val="1" />
+               <sval type="string" val="shows plugin t file txt as disabled if player switches it off" />
+            </sval>
+            <sval type="array" size="3">
+               <sval type="int" val="26" />
+               <sval type="int" val="1" />
+               <sval type="string" val="The event script is called every interval" />
+            </sval>
+            <sval type="array" size="2">
+               <sval type="int" val="29" />
+               <sval type="int" val="4" />
+            </sval>
+            <sval type="array" size="2">
+               <sval type="int" val="29" />
+               <sval type="int" val="2" />
+            </sval>
+            <sval type="array" size="2">
+               <sval type="int" val="30" />
+               <sval type="int" val="2" />
+            </sval>
+            <sval type="array" size="2">
+               <sval type="int" val="30" />
+               <sval type="int" val="2" />
+            </sval>
+         </sval>
+         <sval type="int" val="0" />
+      </sval>
+   </codearray>
+</script>

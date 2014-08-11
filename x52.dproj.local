@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2011/06/21 19:51:21.085.pas,C:\Users\Exi\Documents\RAD Studio\Projects\Unit1.pas=D:\!delphi\X52 X3 plugin\main.pas</Transaction>
+    <Transaction>2011/06/21 19:51:21.085.dfm,C:\Users\Exi\Documents\RAD Studio\Projects\Unit1.dfm=D:\!delphi\X52 X3 plugin\main.dfm</Transaction>
+    <Transaction>2011/06/21 19:51:26.023.dproj,C:\Users\Exi\Documents\RAD Studio\Projects\Project1.dproj=D:\!delphi\X52 X3 plugin\x52.dproj</Transaction>
+    <Transaction>2011.06.28 11:36:32.821.pas,D:\!delphi\X52 X3 plugin\Unit1.pas=D:\!delphi\X52 X3 plugin\DirectOutput_explicit.pas</Transaction>
+    <Transaction>2011.06.28 17:40:27.580.pas,D:\!delphi\X52 X3 plugin\Unit1.pas=D:\!delphi\X52 X3 plugin\servicequery.pas</Transaction>
+    <Transaction>2011/06/29 20:18:42.293.pas,D:\!delphi\X52 X3 plugin\Unit1.pas=D:\!delphi\X52 X3 plugin\ServiceUnit.pas</Transaction>
+    <Transaction>2011/06/30 17:32:27.332.pas,D:\!delphi\X52 X3 plugin\Unit1.pas=D:\!delphi\X52 X3 plugin\MissileSpeeds.pas</Transaction>
+  </Transactions>
+</BorlandProject>

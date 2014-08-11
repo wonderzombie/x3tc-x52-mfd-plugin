@@ -1,0 +1,9 @@
+V1.1
+	- Added new MFD page: Compatible missiles - useful for people like who sometimes have no idea which missiles are compatible with the current ship
+	- Changed money/min calculation formula, should be more accurate now
+	- Fixed Cargo and Equipped lists, they were not updating correctly
+	- (D) LED remained flashing red after you had low hull/shields and your shields recovered, fixed
+	- Fixed some bugs which could cause lockups in the MFD updater thread
+
+
+V1.0 - Initial release

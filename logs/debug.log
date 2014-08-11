@@ -1,0 +1,13 @@
+10:17:58.749: DLL version: 6.2.2.4
+10:18:00.856: Starting reinit sequence
+10:18:00.857:   LedHandlerThread terminated
+10:18:00.857:   MFDHadnlerThread terminated
+10:18:00.857:   Controller not Initialized, skipping DeInit
+10:18:00.857:   DLL unloaded
+10:18:04.870:   Saitek service restarted
+10:18:04.871:   DLL loaded
+10:18:04.871: DLL version: 6.2.2.4
+10:18:04.873: DirectOutput library initialized.
+10:18:04.873: Device change callback procedure registered.
+10:18:04.875: Saitek X52 Pro not connected!
+10:18:04.876: Error initializing the controller, verify connection, DLL path, driver installation.

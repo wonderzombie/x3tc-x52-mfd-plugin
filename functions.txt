@@ -1,0 +1,132 @@
+Navigating through MFD :
+Left scroll : pages
+Right scroll : lines
+And if you push right scroll it will display or hide the page tag.
+
+Functions :
+
+Your ship status
+
+Led functions
+
+Shields and Hull
+I'm using T1/2 T3/4 and T5/6.
+
+Shields :
+>85% = G/G/G
+>70% = Y/G/G
+>55% = R/G/G
+>40% = R/Y/G
+>25% = R/R/G
+>10% = R/R/Y
+<10% = R/R/R
+Every coulour change of those buttons will make flash the changing button quickly :
+last coulour/new coulour/last/new...
+
+Hull :
+100% = ON/ON/ON
+>90% = flashing slowly/ON/ON
+>60% = flashing slowly/flashing slowly/ON
+>30% = flashing slowly/flashing slowly/flashing slowly
+if the hull is damaged T buttons will flash ON/OFF
+(Independentant of the colour of the buttons. If hull is damaged but the shields are UP, T buttons will flash green)
+
+Weapons
+
+A and B buttons
+>80% = G / G
+>60% = Y / G
+>40% = R / G
+>20% = R / Y
+<20% = R / R
+
+Afterburner
+
+If you have the Afterburner script installed :
+
+D button:
+Disponible = green
+Activated = yellow
+Cooling down = red
+
+
+Data displayed on an MFD page :
+
+Tag : "Ship"
+Name
+Shields in %
+Hull in %
+Lasers in %
+Max shields in points
+Max hull in points
+
+
+Current missile :
+
+Led functions
+
+Range :
+
+If the target is out of range :
+- Fire button : off + E button : short and spaced flashs
+If the target enters missile's range :
+- Fire button and E button will flash together.
+Then, closer the target is, faster the flashing.
+and if the target is very close, fire button and E button are ON.
+
+Target status :
+
+E button colour will change (independent of the range)
+If after a direct hit of the missile :
+- only target's shields are damaged : red
+- shields down and hull damage : yellow
+- only spare parts left : green
+And of curse it depends on the current target's status before the hit.
+(be carefull, I never say that the missile will always hit)
+
+
+Data displayed on an MFD page :
+
+Tag : "Installed"
+Name
+Missiles left in the cargo bay
+Damages
+Range
+
+
+Target
+
+Led functions
+
+PDV 2 :
+enemy = red,
+neutral = yellow,
+friend = green.
+
+Data displayed on an MFD page :
+
+Tag : "Target"
+Name
+Shields in points
+Hull in points
+Current max speed
+Distance
+
+
+Incoming missile
+
+Led functions
+
+I button :
+Flaching if there is an incoming missile , still if not.
+If the threat is serious it will change colour.
+Only shields damge : green
+Hull damage : yellow
+You have no chance : red
+
+Data displayed on an MFD page :
+
+Tag : "Incoming"
+Name
+Distance
+Damages
